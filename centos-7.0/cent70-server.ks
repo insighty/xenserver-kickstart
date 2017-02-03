@@ -16,10 +16,10 @@ keyboard us
 # Configure networking without IPv6, firewall off
 
 # for STATIC IP: uncomment and configure
-# network --onboot=yes --device=eth0 --bootproto=static --ip=192.168.###.### --netmask=255.255.255.0 --gateway=192.168.###.### --nameserver=###.###.###.### --noipv6 --hostname=$$$
+network --onboot=yes --device=eth0 --bootproto=static --ip=10.20.0.201 --netmask=255.255.255.0 --gateway=10.20.0.1 --nameserver=###.###.###.### --noipv6 --hostname=$$$
 
 # for DHCP:
-network --bootproto=dhcp --device=eth0 --onboot=on
+# network --bootproto=dhcp --device=eth0 --onboot=on
 
 firewall --enabled --ssh
 
@@ -30,7 +30,7 @@ timezone --utc Etc/UTC
 rootpw --lock
 # if you want to preset the root password in a public kickstart file, use SHA512crypt e.g.
 # rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
-user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
+user --name=centos --password=goodguy --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 # if you want to preset the user password in a public kickstart file, use SHA512crypt e.g.
 # user --name=centos --password=$6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I. --iscrypted --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 authconfig --enableshadow --passalgo=sha512
